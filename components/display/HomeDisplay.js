@@ -1,7 +1,8 @@
 import React from "react";
 import HomePagination from "../pagination/HomePagination";
 import HomeCards from "./HomeCard";
-
+import Image from "next/image";
+import Link from "next/link";
 const HomeDisplay = (props) => {
   let { movies, pageid } = props;
   return (

@@ -18,28 +18,12 @@ async function getData() {
   return res;
 }
 
-async function getMoviesData() {
-  const resp = await fetch(
-    `https://123-movies.world/api/url/putlocker2.monster`
-  );
-
-  if (!resp.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const data = await resp.json();
-  let res = data;
-
-  return res;
-}
-
-export default async function Home({}) {
+export default async function Home() {
   const data = await getData();
-  const moviesData = await getMoviesData();
-  console.log("moviesData", moviesData);
   return (
-    <div className=" ">
+    <div className="">
       <section
-        class="bg-cover bg-top-left bg-no-repeat pb-40 pt-56 relative flex items-center justify-center text-white "
+        class="bg-cover bg-top-left bg-no-repeat py-20 relative flex items-center justify-center text-white "
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${data[0].backdrop_path})`,
         }}
@@ -62,19 +46,7 @@ export default async function Home({}) {
       </section>
       {/* <SearchBar />
       <HomeFilter /> */}
-      <div className="flex justify-center items-center py-10">
-        <a
-          class="bg-[#DC2626] hover:bg-[#DC2626] py-3 px-8 rounded-lg text-yellow-100 border-b-4 border-[#DC2626]-700 hover:border-[white]-800 transition duration-300"
-          href="/home"
-        >
-          Visit For More Movies
-        </a>
-      </div>
-      <div
-        className=" px-20 indexcontent"
-        dangerouslySetInnerHTML={{ __html: moviesData?.website_content }}
-      ></div>
-      ;
+      <HomeDisplay movies={data} />
     </div>
   );
 }

@@ -15,7 +15,6 @@ const SearchBar = ({ onSearch, onTyping }) => {
     onTyping(searchValue);
   };
 
-
   return (
     <>
       <div className=" flex place-content-center mt-10 mx-10">

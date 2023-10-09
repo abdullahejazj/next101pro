@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import Logo from "./Logo";
 
-const Header = () => {
+const Header = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -16,7 +15,7 @@ const Header = () => {
       <nav className=" w-full fixed top-0 z-[100] bg-navbg shadow-sm shadow-slate-50/5 md:shadow-none">
         <div className="max-w-7xl flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8">
           {/* logo */}
-          <Logo />
+          <Logo data={data.website_title} />
 
           {/* links */}
 

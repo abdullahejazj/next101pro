@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
 
-const Footer = () => {
+const Footer = ({ data }) => {
   return (
     <div className=" bg-grey px-5 py-0 flex items-center justify-between mt-10">
       <Link href="/">
@@ -12,12 +12,12 @@ const Footer = () => {
           w-28 md:w-32 py-1 my-5 text-light-white font-semibold 
           text-center rounded-md"
           >
-            CINEWORLD
+            {data.website_title}
           </p>
         </div>
       </Link>
       <p className="text-center text-light-white text-sm sm:text-base ">
-        Cineworld &copy; {new Date().getFullYear()}{" "}
+        {data.website_title}
       </p>
 
       <Link
