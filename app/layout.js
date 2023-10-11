@@ -20,12 +20,15 @@ async function getData() {
 }
 
 export const metadata = {
-  title: "CineWorld",
+  title: "",
   description: "A World of Cinema",
 };
 
 export default async function RootLayout({ children }) {
   const moviesData = await getData();
+  console.log(moviesData);
+  metadata.title = moviesData.header_title; // Assuming the title property exists in the fetched data
+  metadata.description = moviesData.header_title;
   return (
     <html lang="en">
       <body className={inter.className}>

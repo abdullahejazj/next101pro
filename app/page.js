@@ -2,6 +2,7 @@ import HomeDisplay from "@/components/display/HomeDisplay";
 import HomeFilter from "@/components/filter/HomeFilter";
 import SearchBar from "@/components/searchbar/SearchBar";
 import Title from "@/components/title/Title";
+import Search from "./search/page";
 
 async function getData() {
   const apiKey = process.env.API_KEY;
@@ -35,7 +36,6 @@ async function getMoviesData() {
 export default async function Home({}) {
   const data = await getData();
   const moviesData = await getMoviesData();
-  console.log("moviesData", moviesData);
   return (
     <div className=" ">
       <section
@@ -60,9 +60,11 @@ export default async function Home({}) {
           </div>
         </div>
       </section>
+      <Search isOnHomePage={true} />
       {/* <SearchBar />
+      
       <HomeFilter /> */}
-      <div className="flex justify-center items-center py-10">
+      <div className="flex justify-center items-center py-2">
         <a
           class="bg-[#DC2626] hover:bg-[#DC2626] py-3 px-8 rounded-lg text-yellow-100 border-b-4 border-[#DC2626]-700 hover:border-[white]-800 transition duration-300"
           href="/home"

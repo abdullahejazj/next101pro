@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const apiKey = process.env.API_KEY;
 import { useDebounce } from "use-debounce";
 
-const Search = () => {
+const Search = ({ isOnHomePage }) => {
   const [data, setData] = useState([]);
   const [typedValue, setTypedValue] = useState("");
 

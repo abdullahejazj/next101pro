@@ -30,6 +30,12 @@ const Header = ({ data }) => {
               <li className="hover:text-primary">
                 <Link href="/series">Series</Link>
               </li>
+              <li className="hover:text-primary">
+                <Link href="/all/trending/page/10">Top Movies</Link>
+              </li>
+              <li className="hover:text-primary">
+                <Link href="/all/trending/page/1">Trending</Link>
+              </li>
             </ul>
           </div>
 

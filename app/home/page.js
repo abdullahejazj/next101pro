@@ -2,20 +2,28 @@ import HomeDisplay from "@/components/display/HomeDisplay";
 import HomeFilter from "@/components/filter/HomeFilter";
 import SearchBar from "@/components/searchbar/SearchBar";
 import Title from "@/components/title/Title";
+import Link from "next/link";
 
 async function getData() {
   const apiKey = process.env.API_KEY;
-  const resp = await fetch(
-    // `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=1`
-  );
 
-  if (!resp.ok) {
-    throw new Error("Failed to fetch data");
+  const totalPages = 10; // Number of pages to fetch
+  let results = [];
+
+  for (let page = 1; page <= totalPages; page++) {
+    const resp = await fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`
+    );
+
+    if (!resp.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await resp.json();
+    results = results.concat(data.results);
   }
-  const data = await resp.json();
-  let res = data.results;
-  return res;
+
+  return results;
 }
 
 export default async function Home() {
@@ -23,7 +31,7 @@ export default async function Home() {
   return (
     <div className="">
       <section
-        class="bg-cover bg-top-left bg-no-repeat py-20 relative flex items-center justify-center text-white "
+        class="bg-cover bg-top-left bg-no-repeat pt-96 pb-40 relative flex  items-center justify-center text-white "
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${data[0].backdrop_path})`,
         }}
@@ -44,6 +52,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
       {/* <SearchBar />
       <HomeFilter /> */}
       <HomeDisplay movies={data} />
