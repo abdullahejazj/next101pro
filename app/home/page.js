@@ -5,7 +5,7 @@ import Title from "@/components/title/Title";
 import Link from "next/link";
 
 async function getData() {
-  const apiKey = process.env.API_KEY;
+  const apiKey = "183c5bd92dfb902bd27a833eb1e701e2";
 
   const totalPages = 10; // Number of pages to fetch
   let results = [];

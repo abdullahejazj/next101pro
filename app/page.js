@@ -5,7 +5,7 @@ import Title from "@/components/title/Title";
 import Search from "./search/page";
 
 async function getData() {
-  const apiKey = process.env.API_KEY;
+  const apiKey = "183c5bd92dfb902bd27a833eb1e701e2";
   const resp = await fetch(
     // `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
     `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&page=1`

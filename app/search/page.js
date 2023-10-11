@@ -4,7 +4,7 @@ import HomeFilter from "@/components/filter/HomeFilter";
 import SearchBar from "@/components/searchbar/SearchBar";
 import SearchTitle from "@/components/title/SearchTitle";
 import React, { useEffect, useState } from "react";
-const apiKey = process.env.API_KEY;
+const apiKey = "183c5bd92dfb902bd27a833eb1e701e2";
 import { useDebounce } from "use-debounce";
 
 const Search = ({ isOnHomePage }) => {

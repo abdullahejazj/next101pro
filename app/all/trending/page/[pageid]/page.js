@@ -4,7 +4,7 @@ import SearchBar from "@/components/searchbar/SearchBar";
 import Title from "@/components/title/Title";
 
 export async function getData(pageid) {
-  const apiKey = process.env.API_KEY;
+  const apiKey = "183c5bd92dfb902bd27a833eb1e701e2";
   if (pageid < 1) {
     pageid = 1;
   }

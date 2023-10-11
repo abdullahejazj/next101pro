@@ -1,7 +1,7 @@
 import MovieInfo from "@/components/info/MovieInfo";
 
 export async function getData(id) {
-  const apiKey = process.env.API_KEY;
+  const apiKey = "183c5bd92dfb902bd27a833eb1e701e2";
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
   );
@@ -19,7 +19,7 @@ export async function getData(id) {
   return { data, genreArr, id };
 }
 const MovieDetail = async ({ params }) => {
-  let {data, genreArr, id} = await getData(params.id);
+  let { data, genreArr, id } = await getData(params.id);
   return (
     <>
       <MovieInfo MovieDetail={data} genreArr={genreArr} id={id} />
